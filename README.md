@@ -16,18 +16,21 @@ El pipeline consta de 4 pasos y sería así:
 
 ```
 generar el netdata.db (esto tiene su propio pipeline)
-script: s0_get_netdatadb
-salida: netdata-latest.db
+   script: s0_get_netdatadb
+   salida: netdata-latest.db
+
 generar la lista de prefijos invalidados
-script: s1_invalid_prefixes
-salida: s1_invalid_prefixes.csv
-formato: Prefix|Status|OriginAS|ROAAS|ROAPrefix|MaxLen
+   script: s1_invalid_prefixes
+   salida: s1_invalid_prefixes.csv
+   formato: Prefix|Status|OriginAS|ROAAS|ROAPrefix|MaxLen
+
 agregarle a cada línea el org-id:
-script: s2_enrich_with_orgid
-salida: s2_enrich_with_orgid.csv
-format: Prefix|Status|OriginAS|ROAAS|ROAPrefix|MaxLen|ORGID
+   script: s2_enrich_with_orgid
+   salida: s2_enrich_with_orgid.csv
+   format: Prefix|Status|OriginAS|ROAAS|ROAPrefix|MaxLen|ORGID
+
 agrupar listado por org ids y generar un segundo listado por org ids con número de anuncios invalidados
-script: s3_group_by_orgid
+   script: s3_group_by_orgid
 ```
 
 ## Publicación de resultados:
