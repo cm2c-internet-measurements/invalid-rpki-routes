@@ -13,7 +13,7 @@ import collections
 import pysnooper
 import csv
 
-dbfile = "../../data/netdata-latest.db"
+dbfile = "./var/netdata-latest.db"
 # cc = 'AR'
 rir = 'lacnic'
 type = 'ipv4'
@@ -136,7 +136,7 @@ if __name__ == "__main__":
     stats.set('nroutes', 0)
 
     # open file for csv export
-    csvfile = open("s1_invalid_prefixes.csv", "w")
+    csvfile = open("var/s1_invalid_prefixes.csv", "w")
     csv_export = csv.writer(csvfile, dialect='excel', delimiter='|')
     csv_export.writerow(["Prefix", "Status", "OriginAS", "ROAAS", "ROAPrefix", "MaxLen"])
 
