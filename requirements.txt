@@ -1,4 +1,5 @@
 pysnooper
 pytricia
 fire
+consecution
 git+https://github.com/cm2c-internet-measurements/minirdapc.git#egg=minirdapc
